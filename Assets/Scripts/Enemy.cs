@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         Vector3 lookDirection = (target.position - transform.position).normalized;
 
         // Continuous push toward player
-        rb.AddForce(lookDirection * acceleration, ForceMode.Acceleration);
+        rb.AddForce(lookDirection * acceleration, ForceMode.Force);
 
         // Face the target
         if (lookDirection.sqrMagnitude > 0.0001f)

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -12,11 +13,10 @@ public class SpawnManager : MonoBehaviour
 
     private Vector3 GenerateSpawnPosition()
     {
-        float spawnPosX = Random.Range(-spawnRange, spawnRange);
-        float spawnPosZ = Random.Range(-spawnRange, spawnRange);
-
-        Vector3 randomSpawnPosition = new Vector3(spawnPosX, 0, spawnPosZ);
-
-        return randomSpawnPosition;
+        return new Vector3(
+            Random.Range(-spawnRange, spawnRange),
+            0,
+            Random.Range(-spawnRange, spawnRange)
+        );
     }
 }
