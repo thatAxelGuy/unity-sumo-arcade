@@ -10,6 +10,11 @@ public class Enemy : MonoBehaviour
     private Rigidbody rb;
     private Transform target;
 
+    public static int ActiveCount {  get; private set; }
+
+    private void OnEnable() => ActiveCount++;
+    private void OnDisable() => ActiveCount--;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,6 +27,11 @@ public class Enemy : MonoBehaviour
         {
             Debug.LogError($"No GameObject with tag '{targetTag}' found!");
         }
+    }
+
+    private void Update()
+    {
+        if (transform.position.y < -10f) { Destroy(gameObject); }
     }
 
     private void FixedUpdate()
